@@ -1,5 +1,5 @@
 imageName = 'mlabouardy/application'
-registry = 'https://registry.slowcoder.com'
+registry = 'alldaydevops.azurecr.io'
 
 node('workers'){
     stage('Checkout'){
