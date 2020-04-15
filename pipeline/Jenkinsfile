@@ -32,9 +32,9 @@ node('workers'){
             }
         }
 
-        stage('Deploy'){
-            build job: "application-deployment/master"
-        }
+        /*stage('Deploy'){
+            build job: "application-deployment/${env.BRANCH_NAME}"
+        }*/
     }
 }
 
