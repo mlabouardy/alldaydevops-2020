@@ -1,4 +1,5 @@
 imageName = 'mlabouardy/application'
+resourceGroup = 'management'
 registry = 'https://alldaydevops.azurecr.io'
 
 node('workers'){
@@ -32,9 +33,17 @@ node('workers'){
             }
         }
 
-        /*stage('Deploy'){
-            build job: "application-deployment/${env.BRANCH_NAME}"
-        }*/
+        stage('Deploy'){
+            if (env.BRANCH_NAME == 'master') {
+                sh "az container restart --name application-production --resource-group ${resourceGroup}"
+            }
+            if (env.BRANCH_NAME == 'preprod') {
+                sh "az container restart --name application-staging --resource-group ${resourceGroup}"
+            }
+            if (env.BRANCH_NAME == 'develop') {
+                sh "az container restart --name application-sandbox --resource-group ${resourceGroup}"
+            }
+        }
     }
 }
 
