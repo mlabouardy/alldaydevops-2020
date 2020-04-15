@@ -13,3 +13,6 @@ systemctl start docker
 
 echo "Install git"
 yum install -y git jq
+
+echo "Install AzureCLI"
+curl -L https://aka.ms/InstallAzureCli | bash

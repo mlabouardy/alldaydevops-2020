@@ -4,6 +4,20 @@
     </head>
     <body align="center">
         <h2>AllDayDevOps Spring Break Edition 2020</h2>
+        <h3>Environment: <span id="environment"></span></h3>
         <img src="https://www.mememaker.net/api/bucket?path=static/img/memes/full/2019/Nov/14/6/bm-safety-15005.png" alt="meme">
     </body>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+    <script>
+        $(document).ready(function(){
+                $.ajax({
+                    type: "GET",
+                    url: "/environment",
+                    dataType: 'json',
+                    success: function(data) {
+                        document.getElementById("environment").textContent = data.environment
+                    }
+                });
+        });
+    </script>
 </html>
