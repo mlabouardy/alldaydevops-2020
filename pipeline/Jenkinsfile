@@ -33,7 +33,7 @@ node('workers'){
             }
         }
 
-        /*stage('Deploy'){
+        stage('Deploy'){
             if (env.BRANCH_NAME == 'master') {
                 sh "az container restart --name application-production --resource-group ${resourceGroup}"
             }
@@ -43,7 +43,7 @@ node('workers'){
             if (env.BRANCH_NAME == 'develop') {
                 sh "az container restart --name application-sandbox --resource-group ${resourceGroup}"
             }
-        }*/
+        }
     }
 }
 
